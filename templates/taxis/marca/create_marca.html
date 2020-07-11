@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Crear Marca {% endblock %}
+
+{% block content %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">            
+            <div class="col-sm-9">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">
+                        {{ form.nombre.label }}
+                    </label>
+                    <div class="col-sm-8">
+                        {{ form.nombre }}
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Crear</button>
+                <a class="btn btn-info" href="{% url 'catalogo_web:list.marca' %}">Cancelar</a>
+            </div>
+        </div>
+    </form>
+{% endblock %}
