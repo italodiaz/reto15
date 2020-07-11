@@ -2,13 +2,13 @@
 
 {% load static %}
 
-{% block title %} Actualizar Marca {% endblock %}
+{% block title %} Actualizar destino favorito {% endblock %}
 
 {% block content %}
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <h2>¿Deseas eliminar la marca : {{ marca.nombre }} ?</h2>
+        <h2>¿Deseas eliminar el destino favorito: {{ destino.direccion }} ?</h2>
         <button class="btn btn-danger" type="submit">Eliminar</button>
-        <a class="btn btn-info" href="{% url 'catalogo_web:list.marca' %}">Cancelar</a>
+        <a class="btn btn-info" href="{% url 'catalogo_web:list.direccion' %}">Cancelar</a>
     </form>
 {% endblock %}

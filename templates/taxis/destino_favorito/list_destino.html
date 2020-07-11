@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Listar Marcas {% endblock %}
+{% block title %} Listar destinos favoritos {% endblock %}
 
 {% block content %}
     <div class="row">
@@ -8,8 +8,8 @@
             <h3 class="one">Listado</h3>
         </div>
         <div class="col-autor">
-            <a class="btn btn-primary pull-right" href="{% url 'catalogo_web:create.marca' %}">
-                <i class="fa fa-add"></i> Crear Marca
+            <a class="btn btn-primary pull-right" href="{% url 'catalogo_web:create.destino' %}">
+                <i class="fa fa-add"></i> Crear destino favorito
             </a>
         </div>
     </div>
@@ -17,20 +17,22 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
+                <th>Usuario ID</th>
+                <th>Distrito</th>
+                <th>Dirección</th>
             </tr>
         </thead>
         <tbody>
-            {% for marca in marcas %}
+            {% for destino in destinos %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td>{{ marca.nombre }}</td>
+                    <td>{{ destino.id }}</td>
                     <td>
                         <div class="btn-group btn-group-sm">
-                            <a class="btn btn-warning" href="{% url 'catalogo_web:update.marca' marca.id %}">
+                            <a class="btn btn-warning" href="{% url 'catalogo_web:update.destino' destino.id %}">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <a class="btn btn-danger" href="{% url 'catalogo_web:delete.marca' marca.id %}">
+                            <a class="btn btn-danger" href="{% url 'catalogo_web:delete.destino' destino.id %}">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </div>
