@@ -42,7 +42,7 @@ class Viaje(models.Model):
     fecha_hora_solicitado = models.DateTimeField(auto_now_add=True)
     fecha_hora_atendido = models.DateTimeField(null=True, blank=True)
     fecha_hora_terminado = models.DateTimeField(null=True, blank=True)
-    puntos_valoracion = models.PositiveIntegerField(validators=[MinValueValidator(1),MaxValueValidator])
+    puntos_valoracion = models.PositiveIntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)])
     estado = models.CharField(max_length=1)
     
     #def __str__(self):
