@@ -6,10 +6,9 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class Vehiculo(models.Model):
     id = models.AutoField(primary_key=True)
     placa = models.CharField(max_length=10)
-    conductor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) 
+    conductor = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
     marca = models.CharField(max_length=20)
     modelo = models.CharField(max_length=20)
-    tipo = models.CharField(max_length=20)
     color = models.CharField(max_length=20)
 
     def __str__(self):
@@ -32,6 +31,12 @@ class Favoritos(models.Model):
         return self.direccion
 
 class Viaje(models.Model):
+    ESTADO = (
+        (0, 'Cancelado'),
+        (1, 'Pendiente'),
+        (2, 'Atendido'),
+        (3, 'Terminado')
+    )
     id = models.AutoField(primary_key=True)
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) 
     vehiculo = models.ForeignKey(Vehiculo, on_delete=models.CASCADE)
@@ -43,7 +48,7 @@ class Viaje(models.Model):
     fecha_hora_atendido = models.DateTimeField(null=True, blank=True)
     fecha_hora_terminado = models.DateTimeField(null=True, blank=True)
     puntos_valoracion = models.PositiveIntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)])
-    estado = models.CharField(max_length=1)
+    estado = models.IntegerField(default=1, choices=ESTADO)
     
-    #def __str__(self):
-    #   return self.marca.nombre
+    def __str__(self):
+       return f'{self.usuario.username}:{self.distrito_recojo.nombre}->{self.distrito_destino.nombre}'

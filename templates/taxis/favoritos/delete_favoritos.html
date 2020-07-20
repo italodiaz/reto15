@@ -9,6 +9,6 @@
         {% csrf_token %}
         <h2>¿Deseas eliminar el destino favorito: {{ destino.direccion }} ?</h2>
         <button class="btn btn-danger" type="submit">Eliminar</button>
-        <a class="btn btn-info" href="{% url 'catalogo_web:list.direccion' %}">Cancelar</a>
+        <a class="btn btn-info" href="{% url 'taxis:list.direccion' %}">Cancelar</a>
     </form>
 {% endblock %}

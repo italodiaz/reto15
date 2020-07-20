@@ -8,7 +8,7 @@
             <h3 class="one">Listado</h3>
         </div>
         <div class="col-autor">
-            <a class="btn btn-primary pull-right" href="{% url 'catalogo_web:create.destino' %}">
+            <a class="btn btn-primary pull-right" href="{% url 'taxis:create.favoritos' %}">
                 <i class="fa fa-add"></i> Crear destino favorito
             </a>
         </div>
@@ -17,9 +17,10 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Usuario ID</th>
+                <th>Usuario</th>
                 <th>Distrito</th>
                 <th>Dirección</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -29,10 +30,10 @@
                     <td>{{ destino.id }}</td>
                     <td>
                         <div class="btn-group btn-group-sm">
-                            <a class="btn btn-warning" href="{% url 'catalogo_web:update.destino' destino.id %}">
+                            <a class="btn btn-warning" href="{% url 'taxis:update.favoritos' destino.id %}">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <a class="btn btn-danger" href="{% url 'catalogo_web:delete.destino' destino.id %}">
+                            <a class="btn btn-danger" href="{% url 'taxis:delete.favoritos' destino.id %}">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </div>

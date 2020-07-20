@@ -8,7 +8,7 @@
             <h3 class="one">Listado</h3>
         </div>
         <div class="col-autor">
-            <a class="btn btn-primary pull-right" href="{% url 'catalogo_web:create.vehiculo' %}">
+            <a class="btn btn-primary pull-right" href="{% url 'taxis:create.vehiculo' %}">
                 <i class="fa fa-add"></i> Crear vehiculo
             </a>
         </div>
@@ -30,12 +30,16 @@
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td>{{ vehiculo.placa }}</td>
+                    <td>{{ vehiculo.conductor }}</td>
+                    <td>{{ vehiculo.marca }}</td>
+                    <td>{{ vehiculo.modelo }}</td>
+                    <td>{{ vehiculo.color }}</td>
                     <td>
                         <div class="btn-group btn-group-sm">
-                            <a class="btn btn-warning" href="{% url 'catalogo_web:update.vehiculo' vehiculo.id %}">
+                            <a class="btn btn-warning" href="{% url 'taxis:update.vehiculo' vehiculo.id %}">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <a class="btn btn-danger" href="{% url 'catalogo_web:delete.vehiculo' vehiculo.id %}">
+                            <a class="btn btn-danger" href="{% url 'taxis:delete.vehiculo' vehiculo.id %}">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </div>
