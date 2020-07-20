@@ -38,7 +38,7 @@ class Viaje(models.Model):
     distrito_recojo = models.ForeignKey(Distrito, related_name='recojo',on_delete=models.CASCADE)
     direccion_recojo = models.CharField(max_length=100)
     distrito_destino = models.ForeignKey(Distrito, related_name='destino', on_delete=models.CASCADE)
-    direccion_destino = models.CharField(max_length=100)
+    direccion_detino = models.CharField(max_length=100)
     fecha_hora_solicitado = models.DateTimeField(auto_now_add=True)
     fecha_hora_atendido = models.DateTimeField(null=True, blank=True)
     fecha_hora_terminado = models.DateTimeField(null=True, blank=True)

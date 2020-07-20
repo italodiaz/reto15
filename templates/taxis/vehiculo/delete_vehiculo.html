@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Actualizar vehiculo {% endblock %}
+
+{% block content %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>¿Deseas eliminar el vehiculo: {{ vehiculo.placa }} ?</h2>
+        <button class="btn btn-danger" type="submit">Eliminar</button>
+        <a class="btn btn-info" href="{% url 'catalogo_web:list.vehiculo' %}">Cancelar</a>
+    </form>
+{% endblock %}
